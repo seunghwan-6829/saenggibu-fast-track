@@ -12,6 +12,12 @@ export default function StudentRecordForm({ currentLectureTitle }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Auto-resize textarea logic
+    if (e.target.tagName.toLowerCase() === 'textarea') {
+      e.target.style.height = 'inherit';
+      e.target.style.height = `${Math.max(120, e.target.scrollHeight)}px`;
+    }
   };
 
   const handleSubmit = (e) => {

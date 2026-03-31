@@ -17,7 +17,7 @@
 }
 
 .right-sidebar {
-  width: 420px;
+  width: 500px;
   background-color: var(--sidebar-bg);
   border-left: 1px solid var(--border);
   display: flex;
