@@ -41,7 +41,16 @@ function App() {
 
   return (
     <div className="app-container">
-      <main className="main-content">
+      <aside className="sidebar left-sidebar">
+        <CurriculumSidebar 
+           curriculum={curriculum}
+           currentLectureId={currentLectureId}
+           onSelectLecture={handleLectureSelect}
+           completedCount={completedCount}
+        />
+      </aside>
+
+      <main className="main-content center-content">
         <header className="top-nav">
           <div><span className="brand-accent">생기부</span> 추월차선</div>
         </header>
@@ -54,19 +63,10 @@ function App() {
             />
           )}
         </section>
-
-        <section className="form-section">
-           <StudentRecordForm currentLectureTitle={currentLecture?.title} />
-        </section>
       </main>
 
-      <aside className="sidebar">
-        <CurriculumSidebar 
-           curriculum={curriculum}
-           currentLectureId={currentLectureId}
-           onSelectLecture={handleLectureSelect}
-           completedCount={completedCount}
-        />
+      <aside className="sidebar right-sidebar">
+        <StudentRecordForm currentLectureTitle={currentLecture?.title} />
       </aside>
     </div>
   )
