@@ -1,0 +1,102 @@
+.admin-container {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  font-family: inherit;
+  color: #0f172a;
+}
+.admin-header {
+  background-color: #1e293b;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.admin-brand span {
+  color: #94a3b8;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+.admin-main {
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.admin-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  flex: 1;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--primary);
+}
+.stat-card h4 {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.stat-card p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+.submissions-list {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+.submissions-list h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.no-data {
+  text-align: center;
+  padding: 4rem;
+  color: #94a3b8;
+  background-color: #f8fafc;
+  border-radius: 8px;
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-table th, .admin-table td {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+.admin-table th {
+  background-color: #f8fafc;
+  color: #64748b;
+  font-weight: 600;
+}
+.admin-table tr:hover {
+  background-color: #f8fafc;
+}
+.status-badge {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.status-badge.pending { background-color: #fef9c3; color: #854d0e; border-color: #fde047; }
+.status-badge.reviewing { background-color: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+.status-badge.completed { background-color: #dcfce3; color: #166534; border-color: #bbf7d0; }

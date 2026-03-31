@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './StudentRecordForm.css';
 
 export default function StudentRecordForm({ currentLectureTitle }) {
@@ -8,6 +8,14 @@ export default function StudentRecordForm({ currentLectureTitle }) {
     result: '',
     feeling: ''
   });
+
+  // Load draft on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('studentDraft');
+    if (saved) {
+      setFormData(JSON.parse(saved));
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,12 +30,14 @@ export default function StudentRecordForm({ currentLectureTitle }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('작성하신 생활기록부 내용이 성공적으로 저장되었습니다! (MVP 버전 확인용)');
+    localStorage.setItem('studentDraft', JSON.stringify(formData));
+    alert('작성하신 생활기록부 내용이 기기에 저장되었습니다!\n컨설팅 신청을 원하시면 우측 상단의 버튼을 눌러주세요.');
   };
 
   const handleReset = () => {
-    if(window.confirm('작성 중인 내용을 초기화하시겠습니까?')) {
+    if(window.confirm('작성 중인 내용을 초기화하시겠습니까? (저장된 내용도 지워집니다)')) {
         setFormData({ motive: '', activity: '', result: '', feeling: '' });
+        localStorage.removeItem('studentDraft');
     }
   }
 
@@ -93,7 +103,7 @@ export default function StudentRecordForm({ currentLectureTitle }) {
 
         <div className="form-actions">
           <button type="button" className="btn btn-secondary" onClick={handleReset}>초기화</button>
-          <button type="submit" className="btn btn-primary">임시저장</button>
+          <button type="submit" className="btn btn-primary">저장하기</button>
         </div>
       </form>
     </div>
